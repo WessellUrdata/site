@@ -1,20 +1,13 @@
 ---
 title: "ISO Images Info"
 date: 2024-11-06
+updateDate: 2025-01-01
 category: "info"
 ---
 
 **CONTEXT:** I'm adding this page since earlier today I was in a hurry to flash a Windows installation USB drive for my friend and I had to find checksums for them on some other website. Having them here would be better since I host the files myself.
 
 ## Windows 11
-
-Windows 11 (IoT) Enterprise LTSC 2024 build 26100.1 ([Download Link](https://dl.wesl.cc/26100.1.240331-1435.ge_release_CLIENT_ENTERPRISES_OEM_x64FRE_en-us.iso))
-
-- Filename: `26100.1.240331-1435.ge_release_CLIENT_ENTERPRISES_OEM_x64FRE_en-us.iso`
-- SHA-1: `03216a268147e7ccaf38b28524b62c62fef746fc`
-- SHA-256: `aaa4bd3254c1af5f9ce07f50db68fdead7a305878f2425c059ecd6b062a855b3`
-
----
 
 Windows 11 IoT Enterprise LTSC 2024 build 26100.1742 ([Download Link](https://dl.wesl.cc/en-us_windows_11_iot_enterprise_ltsc_2024_x64_dvd_f6b14814.iso))
 
@@ -26,11 +19,11 @@ Windows 11 IoT Enterprise LTSC 2024 build 26100.1742 ([Download Link](https://dl
 
 ## Windows 10
 
-Windows 10 Enterprise LTSC 2021 ([Download Link](https://dl.wesl.cc/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso)) [End of Life: January 12, 2027 for Enterprise, January 13, 2032 for IoT Enterprise]
+Windows 10 Enterprise LTSC 2021 build 19044.1288 ([Download Link](https://dl.wesl.cc/en-us_windows_10_iot_enterprise_ltsc_2021_x64_dvd_257ad90f.iso)) [End of Life: January 12, 2027 for Enterprise, January 13, 2032 for IoT Enterprise]
 
-- Filename: `en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso`
-- SHA-1: `2fb2897373c4f71b06f4490943b3d564b0f0fd6d`
-- SHA-256: `c90a6df8997bf49e56b9673982f3e80745058723a707aef8f22998ae6479597d`
+- Filename: `en-us_windows_10_iot_enterprise_ltsc_2021_x64_dvd_257ad90f.iso`
+- SHA-1: `76c3c10e38307d29fd8b4748522ed144dba35829`
+- SHA-256: `a0334f31ea7a3e6932b9ad7206608248f0bd40698bfb8fc65f14fc5e4976c160`
 
 ---
 
