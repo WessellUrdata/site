@@ -15,7 +15,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@playform/compress": "^0.0.13",
     "dayjs": "^1.11.13",
-    "katex": "^0.16.18",
+    "katex": "^0.16.19",
     "rehype-katex": "^7.0.1",
     "remark-emoji": "^4.0.1",
     "remark-math": "^6.0.0",
