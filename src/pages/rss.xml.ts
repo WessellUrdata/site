@@ -13,7 +13,7 @@ export async function GET(context: { site: any }) {
     items: blog.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
       pubDate: post.data.date,
       customData: post.data.updateDate ? `<lastBuildDate>${dayjs(post.data.updateDate)}</lastBuildDate>` : "",
     })),

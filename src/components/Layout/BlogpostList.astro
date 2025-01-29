@@ -18,10 +18,12 @@ posts.sort((a, b) => {
   <a
     href="/rss.xml"
     class="ml-auto px-3 py-1 gap-x-2 flex items-center text-accent text-sm font-semibold border-[1px] border-accent rounded-lg"
-    aria-label="Link to get RSS feed">
+    aria-label="Link to get RSS feed"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" height="16">
       <path
-        d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z">
+        d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
+      >
       </path>
     </svg>
     <span class="hidden sm:block">RSS Feed</span>
@@ -37,7 +39,7 @@ posts.sort((a, b) => {
         updateDate={post.data.updateDate}
         category={post.data.category}
         description={post.data.description}
-        link={post.collection + "/" + post.slug}
+        link={post.collection + "/" + post.id}
       />
     </div>
   ))
