@@ -23,13 +23,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@unocss/reset": "^0.65.4",
+    "@unocss/reset": "^65.4.3",
     "astro": "^4.16.18",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-md-nocjsp": "^1.5.1",
     "typescript": "^5.7.3",
-    "unocss": "^0.65.4"
+    "unocss": "^65.4.3"
   },
   "prettier": {
     "plugins": [
