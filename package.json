@@ -10,9 +10,9 @@
     "astro": "bunx --bun astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.2.6",
+    "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.3.1",
+    "@astrojs/sitemap": "^3.4.0",
     "@playform/compress": "^0.1.9",
     "dayjs": "^1.11.13",
     "katex": "^0.16.22",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@unocss/reset": "^65.5.0",
-    "astro": "^5.7.10",
+    "astro": "^5.8.0",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-md-nocjsp": "^1.5.1",
