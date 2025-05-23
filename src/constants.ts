@@ -1,4 +1,4 @@
-const twemojiVer = "15.1.0";
+const twemojiVer = "16.0.1";
 const twemojiSettings = {
   base: "/twemoji",
   folder: `/${twemojiVer}`,
