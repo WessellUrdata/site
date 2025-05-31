@@ -1,8 +1,8 @@
-import { defineConfig, presetUno, presetTypography, transformerCompileClass } from "unocss";
+import { defineConfig, presetWind3, presetTypography, transformerCompileClass } from "unocss";
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind3(),
     presetTypography({
       cssExtend: {
         ":root": {
