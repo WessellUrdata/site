@@ -24,7 +24,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@unocss/reset": "^66.3.2",
-    "astro": "^5.10.1",
+    "astro": "^5.11.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-md-nocjsp": "^1.5.1",
