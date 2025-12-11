@@ -20,4 +20,4 @@ The telltale signs that I found were:
 
 (I will fix the caption above in the future)
 
-This happened about a few weeks ago, but it's been on my mind for a while so I decided to dig a bit further. They have a LinkedIn page, so I begrudgingly signed up for LinkedIn (I've never had one until now), and lo and behold... Indians. With surnames like "Singh", "Kumar" and "Sharma", it's obviously Indian. (Not all of the stated employees have Indian surnames, but most of them do.) H-1Bs strike again. 😔🧑🏾‍💻
+This happened about a few weeks ago, but it's been on my mind for a while so I decided to dig a bit further. They have a LinkedIn page, so I begrudgingly signed up for LinkedIn (I've never had one until now), and lo and behold... Indi\*ns. With surnames like "Singh", "Kumar" and "Sharma", it's obviously Indi\*n. (Not all of the stated employees have Indi\*n surnames, but most of them do.) H-1Bs strike again. 😔🧑🏾‍💻
