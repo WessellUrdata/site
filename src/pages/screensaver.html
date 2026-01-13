@@ -28,12 +28,12 @@
       align-items: center;
     "
   >
-    <div id="bouncing-relaxed" style="height: 96px; width: 96px; position: absolute; left: 0px; top: 0px">
+    <div id="relaxed" style="height: 96px; width: 96px; position: absolute">
       <svg version="1.1" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m36 18c0 9.94-8.06 18-18 18-9.94 0-18-8.06-18-18 0-9.94 8.06-18 18-18 9.94 0 18 8.06 18 18"
           fill="#FFCC4D"
-          id="relaxedBg"
+          id="relaxedBackground"
         />
         <circle cx="29" cy="22" r="5" fill="#FF7892" />
         <circle cx="7" cy="22" r="5" fill="#FF7892" />
@@ -62,46 +62,44 @@
   </body>
 
   <script>
-    const relaxedDiv = document.getElementById("bouncing-relaxed");
-    const relaxedSvg = document.getElementById("relaxedBg");
     const hitCountSpan = document.getElementById("cornerHitCount");
-    const container = relaxedDiv.parentElement;
-    const updatesPerFrame = 2;
+    const container = relaxed.parentElement;
 
     // randomize the initial position
-    relaxedDiv.style.left = 30 + Math.random() * 40 + "vw";
-    relaxedDiv.style.top = 30 + Math.random() * 40 + "vh";
+    relaxed.style.left = Math.random() * (container.offsetWidth - relaxed.offsetWidth) + "px";
+    relaxed.style.top = Math.random() * (container.offsetHeight - relaxed.offsetHeight) + "px";
 
     // randomize the direction
-    let dirX = Math.random() < 0.5 ? -1 : 1;
-    let dirY = Math.random() < 0.5 ? -1 : 1;
+    const randomDir = () => (Math.random() < 0.5 ? -1 : 1);
+    let dirX = randomDir();
+    let dirY = randomDir();
 
     let vHit = false;
     let hHit = false;
 
     let cornerHitCount = 0;
 
+    const updatesPerFrame = 2;
     function animate() {
       for (let i = 0; i < updatesPerFrame; i++) {
-        const { x, y } = relaxedDiv.getBoundingClientRect(); // from the top left corner of the logo
+        const { x, y } = relaxed.getBoundingClientRect(); // from the top left corner of the logo
 
         // Reverse direction when the logo hits a boundary
-        if (x + relaxedDiv.offsetWidth + Math.abs(dirX) > container.offsetWidth || x < Math.abs(dirX)) {
+        if (x + relaxed.offsetWidth + Math.abs(dirX) > container.offsetWidth || x < Math.abs(dirX)) {
           dirX *= -1;
           hHit = true;
         }
-        if (y + relaxedDiv.offsetHeight + Math.abs(dirY) > container.offsetHeight || y < Math.abs(dirY)) {
+        if (y + relaxed.offsetHeight + Math.abs(dirY) > container.offsetHeight || y < Math.abs(dirY)) {
           dirY *= -1;
           vHit = true;
         }
 
-        // Move the logo
-        relaxedDiv.style.left = relaxedDiv.offsetLeft + dirX + "px";
-        relaxedDiv.style.top = relaxedDiv.offsetTop + dirY + "px";
+        relaxed.style.left = relaxed.offsetLeft + dirX + "px";
+        relaxed.style.top = relaxed.offsetTop + dirY + "px";
 
         if (hHit && vHit) hitCountSpan.innerText = ++cornerHitCount;
 
-        if (hHit || vHit) relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        if (hHit || vHit) relaxedBackground.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
         // Reset the hit flags
         hHit = vHit = false;
