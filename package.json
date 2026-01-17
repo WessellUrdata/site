@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.14",
-    "@astrojs/sitemap": "^3.6.0",
-    "@playform/compress": "^0.2.0",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@playform/compress": "^0.2.1",
     "dayjs": "^1.11.19",
     "katex": "^0.16.27",
     "rehype-katex": "^7.0.1",
@@ -23,13 +23,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@unocss/reset": "^66.5.10",
-    "astro": "^5.16.6",
-    "prettier": "^3.7.4",
+    "@unocss/reset": "^66.6.0",
+    "astro": "^5.16.11",
+    "prettier": "^3.8.0",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-md-nocjsp": "^1.5.1",
     "typescript": "^5.9.3",
-    "unocss": "^66.5.10"
+    "unocss": "^66.6.0"
   },
   "prettier": {
     "plugins": [
