@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Wessell's ☺️ Fountain" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Wessell's ☺️ Fountain</title>
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:site_name" content="Wessell's ☺️site" />
+    <meta name="theme-color" content="#ffcc4d" />
+    <meta property="og:title" content="Wessell's ☺️ Fountain" />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:description" content="Wessell's extremely ☺️ Fountain" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+
+  <body style="margin: 0; overflow: hidden">
+    <canvas id="canvas" style="background-color: #232629; display: block"></canvas>
+  </body>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Load the image
+    const img = new Image();
+    img.src =
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAAclBMVEVHcEz/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3/zE3ZqjpwTQWziSf/eJKMZxP1xEhmRQB5VgqpgCLPojW8kSvGmTDsu0P/iIX/x1H/wlb/nXSDXg6feB3isz+WbxizX0mpeyapYTwF6Z7OAAAADXRSTlMAj89AgFDfIJ/vr79gGyX6AQAAAnRJREFUeF6tmOly6yAMRnESYzvJB96dfWv7/q94WxpfDUaO3cD56dGckcBiBOIFyTbaSDyRm2ibiDeIUwkHmcZ/syRRhhGyaH5eyzVesl7OyybFJOmMrFYZZpCtptJZYCaLl0nFGWaTxS/Kwp8YLS/FH0l9PWQK4iETvz6e6xTjTQZ7l2R4k8xuvQXeZuG5QMTKKcy/uBSEzz+whINS+TedqkhQqS7/Rik49OfTGhZde63/k+NJTt+ubQeLtTAklmbf1BZ9TrVFs7dMiRFFIBRpeBGpFIjIiDKAyb8py+uwtGtZNkzVQDZojrY26Nv+AENVweGwv+na0JIptvf+V7OvMEG1+1XZf4C0RY8KM6getkjae5ZTupO01iIhEVsEYSsiBCESGwRhIyRY7vvc0HdbpXLD7g4WKcBwaLXVbVan6fYABk60006TWB/07qXofDkW3xwvn+Qgkc1nH3t2RKdL0fMUlD80VFpjPjxNRc9lIDodC0tUdhjpts64KPp4IpHxEB91/XXCKKevuv4oLBOJqC7KmIOPJdG5cDiDZTxWSEpoOqXxWGla5OiKjuAYj92Ypi0YwDEeG4ltGNFWJGFEiRAyhEiaw99/sc3hH4fYfjO3Zf4/ZCZ+iPgW0TqvYFHlWvOxUT9EUNNSI5pDoN2pJ7vWtD0fmwjDmkzkwaNmeICLXdOgBVyGC604kQIXu7RGv/Pw+CxdTwnAjU0nhtGDHnr0YWrSXoFDuYVxrKYH9s7KSXfgWMy5QtxL8pR38IXNu9Somxn2mpsCTxz6muV/8fMwhb/UpoGv6/4PCOGfNPwfWfyffQI/RIV/Ggv/WOf/fPgPKgLtvqOu12sAAAAASUVORK5CYII=";
+
+    const centerOffset = 128;
+    const imageSize = 72;
+    const gravity = 0.2;
+    const fadeInFrames = 20; // First few frames for fade-in effect
+
+    function calculateOpacity(age) {
+      if (age < fadeInFrames) {
+        return age / fadeInFrames;
+      } else {
+        return 1.0;
+      }
+    }
+
+    let images = [];
+    let lastFrameTime = 0; // For frame-rate independent animation
+
+    // Resize the canvas on window resize
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createImage() {
+      const image = {
+        x: canvas.width / 2 + centerOffset * (Math.random() - 0.5) - imageSize / 2,
+        y: canvas.height / 2 + centerOffset * (Math.random() - 0.5) - imageSize / 2,
+        vx: (Math.random() - 0.5) * 2 * 5, // Horizontal Velocity [-5, 5]
+        vy: Math.random() * -8 - 4, // Vertical Velocity [-12, -4] (upwards initially)
+        age: 0,
+        active: true,
+      };
+
+      images.unshift(image);
+    }
+
+    function animate(currentTime) {
+      // Calculate delta time for frame-rate independent animation
+      const deltaTime = lastFrameTime ? (currentTime - lastFrameTime) / 16.67 : 1; // Normalize to ~60fps baseline
+      lastFrameTime = currentTime;
+
+      // Cap delta time to prevent large jumps (e.g., when tab becomes active again)
+      const cappedDeltaTime = Math.min(deltaTime, 3);
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = images.length - 1; i >= 0; i--) {
+        const image = images[i];
+
+        image.vy += gravity * cappedDeltaTime;
+        image.x += image.vx * cappedDeltaTime;
+        image.y += image.vy * cappedDeltaTime;
+        image.age += cappedDeltaTime; // Frame-rate independent age increment
+
+        // Draw the image with opacity
+        ctx.globalAlpha = calculateOpacity(image.age);
+        ctx.drawImage(img, image.x, image.y, imageSize, imageSize);
+
+        // Remove if off screen
+        if (image.y > canvas.height || image.x > canvas.width || image.x < -imageSize) {
+          images.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start animation once image is loaded
+    img.onload = function () {
+      animate();
+      setInterval(createImage, 16);
+    };
+  </script>
+</html>
