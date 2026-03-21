@@ -20,29 +20,23 @@ const { title, date, updateDate, category, description, link } = Astro.props;
 }
 
 {
-  date ? (
+  date && (
     <>
       <span>
         posted on {dayjs(date).format("YYYY-MM-DD")}
-        {updateDate ? <E> 🔸 </E> : ""}
-        {updateDate
-          ? `updated on
-            ${dayjs(updateDate).format("YYYY-MM-DD")} `
-          : ""}
+        {updateDate &&
+          (<E> 🔸 </E>)`updated on
+            ${dayjs(updateDate).format("YYYY-MM-DD")} `}
       </span>
       <span class=":uno: bg-slate-600 px-2 mx-2 rounded text-gray-100">{category}</span>
     </>
-  ) : (
-    ""
   )
 }
 
 {
-  description ? (
+  description && (
     <p>
       <E>{description}</E>
     </p>
-  ) : (
-    ""
   )
 }
