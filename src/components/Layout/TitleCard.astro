@@ -5,29 +5,16 @@ import E from "../E.astro";
 const { title, date, updateDate, category, description, link } = Astro.props;
 ---
 
-{
-  link ? (
-    <a href={link}>
-      <h1 class="heading-1">
-        <E>{title}</E>
-      </h1>
-    </a>
-  ) : (
-    <h1 class="heading-1">
-      <E>{title}</E>
-    </h1>
-  )
-}
+<h1 class="heading-1">
+  <a href={link}>
+    {title}
+  </a>
+</h1>
 
 {
   date && (
     <>
-      <span>
-        posted on {dayjs(date).format("YYYY-MM-DD")}
-        {updateDate &&
-          (<E> 🔸 </E>)`updated on
-            ${dayjs(updateDate).format("YYYY-MM-DD")} `}
-      </span>
+      <span>posted on {dayjs(date).format("YYYY-MM-DD")}</span>
       <span class=":uno: bg-slate-600 px-2 mx-2 rounded text-gray-100">{category}</span>
     </>
   )
