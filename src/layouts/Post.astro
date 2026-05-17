@@ -7,7 +7,7 @@ const { title, date, updateDate, category, description } = Astro.props.frontmatt
 ---
 
 <Shell title={title} ogTitle={title} ogDescription={description}>
-  <article class="prose max-w-full">
+  <article class="prose prose-invert max-w-full">
     <TitleCard title={title} date={date} updateDate={updateDate} category={category} description="" />
     <slot />
   </article>
